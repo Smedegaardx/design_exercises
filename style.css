@@ -11,28 +11,44 @@
 .grid{
     max-width: 1100px;
     margin: 50px auto;
-    @media screen and (min-width: 800px) {
-       display: grid;
-       grid-template-columns: 1fr 1fr;
-    }
+    display: grid;
+    @media (width > 800px){
+         grid-template-columns: 1fr 1fr;
+    }   
 }
 
-.grid:first-child{
-    padding: 50px;
+
+section:first-of-type{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 40px;
+    padding: 50px; 
     button{
         background-color: var(--color-bg-button);
         color: var(--color-text-button);
         border-radius: 25px;
+        max-width: 200px;
+        padding: 20px 10px;
     }
     h1{
         color: var(--color-heading);
+        font-size: 82px;
     }
+    p{
+        color: var(--color-body);
+    }
+    
+    
 }
 
-.images{
+section:last-of-type{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    @media (width < 800px){
+         order: -1;
+    }   
     :nth-child(1){
         grid-column: 2;
     }
