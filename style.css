@@ -12,12 +12,34 @@
         --bg: var(--color-brand-yellow);
         grid-area: a;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        container: title / inline-size;
+        div{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+        @container title (width < 500px){
+           div{
+                display: contents;
+                p:has(b){
+                    order: -1;
+                }
+            }
+        }
     }
+
 
     .list {
         --bg: var(--color-brand-coffee);
         grid-area: d;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+        :nth-child(3){
+            color: var(--color-brand-yellow);
+        }
     }
 
     .image-1 {
