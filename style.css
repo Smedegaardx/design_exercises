@@ -1,5 +1,6 @@
 html {
     color-scheme: light;
+    container: document / inline-size;
 
     &[data-theme="dark"] {
         color-scheme: dark;
@@ -16,6 +17,7 @@ html {
 }
 
 article {
+    container: article / inline-size;
     padding: 1rlh;
     max-inline-size: 1200px;
     margin-inline: auto;
@@ -39,6 +41,9 @@ header {
         aspect-ratio: 1;
         object-fit: cover;
         border-radius: 1rem;
+        @container article (width < 768px){
+            mask: linear-gradient(to bottom, red, 80%, #0000);
+        }
     }
 
     >div {
