@@ -1,24 +1,63 @@
 .bento {
     display: grid;
     gap: var(--spacing-base);
-
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 0.5fr;
+    grid-template-areas: 
+    "a a b"
+    "c d b"
+    "c d e"
+    ;
     .title {
         --bg: var(--color-brand-yellow);
+        grid-area: a;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
     .list {
         --bg: var(--color-brand-coffee);
+        grid-area: d;
     }
 
     .image-1 {
         color: var(--color-text-accent);
+        grid-area: b;
+        display: grid;
+        & > p{
+            grid-column: 1;
+            grid-row: 1;
+            align-self: end;
+            text-align: center;
+            margin: 1rem;
+            &:first-of-type{
+                align-self: start;
+            }
+        }
+        & > img{
+           grid-column: 1;
+            grid-row: 1; 
+        }
     }
 
     .tag {
         --bg: var(--color-brand-olive);
         font-size: 2rem;
         line-height: 1.2;
+        grid-area: e;
     }
+
+    .image-2{
+        grid-area: c;
+        display: grid;
+        object-fit: cover;
+    }
+ @media (width < 600px){
+   grid-template-columns: 1fr 1fr;
+   grid-template-areas: "a a"
+   "b c"
+   "d e";
+ }
 }
 
 .card {
